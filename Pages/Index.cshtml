@@ -1,0 +1,125 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Real-time Chat</title>
+    <style>
+        /* Your CSS styles here */
+        /* Style for the chat container */
+        #chatContainer {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Style for the message list */
+        #messages {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            width: 300px; /* Adjust width as needed */
+            height: 200px; /* Adjust height as needed */
+            overflow-y: scroll;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+            /* Style for the message items */
+            #messages li {
+                list-style: none;
+                padding: 10px;
+                margin-bottom: 5px;
+                font-size: 16px;
+                display: flex;
+                justify-content: flex-start; /* Default alignment for messages from other users */
+                flex-direction: column;
+            }
+
+               /* /* Style for the message items from the current user */
+                #messages li .sent {
+                    justify-content: flex-end; /* Right-align for messages from the current user */
+                }*/
+
+                /* Style for the username */
+                #messages li .username {
+                    font-size: 14px; /* Smaller font size for the username */
+                    /*font-weight: bold;*/
+                    margin-right: 10px; /* Add some spacing between username and message */
+                }
+
+                /* Style for the message content */
+                #messages li .message {
+                    /*display: block;*/
+                    border-radius: 5px;
+                    padding: 8px 12px;
+                    background-color: #007bff; /* Blue background for messages from the current user */
+                    color: #fff;
+                }
+
+                /* Style for the message content from other users */
+                #messages li .sent .message {
+                    background-color: #f0f0f0; /* Light gray background for messages from other users */
+                    color: #333; /* Dark text color for messages from other users */
+                }
+
+
+               
+
+        /* Style for the message input */
+        #messageInput {
+            width: 300px; /* Adjust width as needed */
+            margin-top: 10px;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+
+        }
+
+        /* Style for the username input */
+        #username {
+            width: 300px; /* Adjust width as needed */
+            margin-top: 10px;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        /* Style for the send button */
+        #sendButton {
+            width: 100px; /* Adjust width as needed */
+            margin-top: 10px;
+            padding: 5px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+            /* Style for the send button on hover */
+            #sendButton:hover {
+                background-color: #0056b3;
+            }
+
+
+    </style>
+</head>
+<body>
+    <div id="chatContainer">
+        <ul id="messages"></ul>
+        <input type="text" id="username" placeholder="Username" />
+        <input type="text" id="messageInput" placeholder="Type your message..." />
+        <button id="sendButton">Send</button>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/5.0.0/signalr.min.js"></script>
+
+   <script src="~/js/chat.js"></script>
+    @*</script>*@
+</body>
+</html>
